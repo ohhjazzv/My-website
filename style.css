@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin: 5% 2%;
+}
+
+.leftbox{
+    width: 280px;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.whatsnew,
+.todolist {
+    width: 280px;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.rightbox {
+    width: 280px;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.centerbox {
+    width: 700px;
+    padding: 10px;
+    flex-shrink: 0;
+    color: white;
+}
+
+nav,
+.whatsnew,
+.todolist,
+.currents,
+.fav-artists,
+.fav-character,
+.welcome,
+.aboutme,
+.projects,
+.blogpost {
+  border: 1px solid rgba(190, 187, 187, 0.61);
+  padding: 7px;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+nav h3,
+.whatsnew h3,
+.todolist h3,
+.currents h3,
+.fav-artists h3,
+.fav-character h3,
+.welcome h3,
+.aboutme h3,
+.projects h3,
+.blogpost h3 {
+    text-align: center;
+    padding: 8px;
+    text-decoration: underline;
+    font-size: 1.75rem;
+}
+
+nav li,
+.whatsnew li,
+.todolist li,
+.currents li,
+.fav-artists li {
+    padding: 1px;
+    text-align: left;
+}
+
+nav li::before,
+.whatsnew li::before,
+.todolist li::before,
+.currents li::before,
+.fav-artists li::before {
+    content: "⇢";
+    color: white;
+    padding-right: 8px;
+    padding-left: 10px;
+}
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+}
+
+body {
+    background-color: black;
+    background-image: url('assets/black.jpg');
+    background-repeat: no-repeat;
+    background-size: 1920px;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+    color: #3a3a3a;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a {
+    color: rgb(92, 167, 236);
+    text-decoration: none;
+}
+
+.fav-character img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.welcome p,
+.aboutme p {
+    margin-top: 8px;
+    line-height: 1.5;
+}
+.aboutme li {
+    padding: 1px;
+    text-align: left;
+}
+
+.aboutme li::before {
+    content: "⇢";
+    color: white;
+    padding-right: 8px;
+    padding-left: 10px;
+}
+
+.unseen {
+    margin-top: 16px;
+}
+
+.unseen a {
+    color: rgb(92, 167, 236);
+}
+
+.project-desc {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.project-footer {
+    margin-top: 12px;
+}
+
+.blogpost p {
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+.fav-character {
+    text-align: center;
+}
+
+.fav-character img {
+    margin-top: 8px;
+    max-width: 100%;
+}
+
+.blinkies {
+    text-align: center;
+    padding: 16px;
+    margin-bottom: 0;
+    border: 1px solid rgba(190, 187, 187, 0.61);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.bottomblinkies img {
+    padding: 3px;
+}
