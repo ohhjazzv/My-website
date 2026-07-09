@@ -38,3 +38,5 @@ also also
 used claude code to help set up git/github, debug some css/js issues, n final code was typed n decided by me.
 
 find me: [github.com/ohhjazzv](https://github.com/ohhjazzv)
+
+TRY OUT link --> https://vermillion-syrniki-459fa0.netlify.app
