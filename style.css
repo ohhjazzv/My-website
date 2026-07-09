@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+:root {
+    --forge-iron: #1b1b1b;
+    --parchment: #efe6de;
+    --ember-gold: #fc6e20;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -39,7 +45,7 @@
     width: 700px;
     padding: 10px;
     flex-shrink: 0;
-    color: white;
+    color: var(--parchment);
 }
 
 nav,
@@ -73,6 +79,7 @@ nav h3,
     padding: 8px;
     text-decoration: underline;
     font-size: 1.75rem;
+    color: var(--parchment);
 }
 
 nav li,
@@ -101,13 +108,13 @@ html, body {
 }
 
 body {
-    background-color: black;
+    background-color: var(--forge-iron);
     background-image: url('assets/black.jpg');
     background-repeat: no-repeat;
     background-size: 1920px;
     background-position: center;
     font-family: 'Poppins', sans-serif;
-    color: #3a3a3a;
+    color: var(--parchment);
 }
 
 ul{
@@ -184,4 +191,186 @@ a {
 
 .bottomblinkies img {
     padding: 3px;
+}
+
+.konami-unlocked {
+    animation: konami-shake .5s ease-in-out;
+}
+
+@keyframes konami-shake {
+    0%,100% { transform: translateX(0) rotate(0); }
+    25%     { transform: translateX(-8px) rotate(-1deg); }
+    75%     { transform: translateX(8px) rotate(1deg); }
+}
+
+@keyframes konami-appears {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(.9); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.konami-scroll {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg, #1b1b1b);
+    color: var(--ink, #efe6de);
+    border: 2px solid var(--accent, #fc6e20);
+    padding: 2rem 3rem;
+    z-index: 9999;
+    text-align: center;
+    box-shadow: 0 0 0 6px var(--bg, #1b1b1b),
+                0 0 0 8px var(--accent, #fc6e20),
+                0 20px 60px rgba(0,0,0,.6);
+    font-family: 'JetBrains Mono', monospace;
+    animation: konami-appears .4s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.konami-scroll .sub { opacity: .6; font-style: italic; }
+.konami-scroll button {
+    margin-top: 1rem;
+    background: transparent;
+    color: inherit;
+    border: 1px solid currentColor;
+    padding: .5rem 1.2rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.konami-scroll button:hover { background: var(--accent, #fc6e20); color: var(--bg, #1b1b1b);}
+
+.konami-drop {
+    position: fixed;
+    top: -20px;
+    color: var(--accent, #fc6e20);
+    font-size: 1.4rem;
+    pointer-events: none;
+    animation: konami-fall linear forwards;
+    z-index: 9998;
+}
+@keyframes konami-fall {
+    to {transform: translateY(105vh) rotate(360deg); opacity: 0;}
+}
+
+.codex {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 9997;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--parchment, #efe6de);
+}
+
+.codex__tab {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  background: var(--forge-iron, #1b1b1b);
+  color: var(--ember-gold, #fc6e20);
+  border: 2px solid var(--parchment, #efe6de);
+  padding: .45rem .8rem;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: lowercase;
+  font-size: .7rem;
+  box-shadow: 4px 4px 0 var(--ember-gold, #fc6e20);
+  transition: transform .15s, box-shadow .15s;
+}
+.codex__tab:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ember-gold, #fc6e20);
+}
+.codex__sigil {
+  font-size: .9rem;
+  animation: codex-pulse 2s ease-in-out infinite;
+}
+@keyframes codex-pulse { 50% { opacity: .4; } }
+
+.codex__body {
+  position: absolute;
+  bottom: calc(100% + .6rem);
+  left: 0;
+  width: 240px;
+  max-width: calc(100vw - 2rem);
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--forge-iron, #1b1b1b);
+  border: 2px solid var(--parchment, #efe6de);
+  padding: .9rem 1rem 1rem;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  box-shadow: 4px 4px 0 var(--ember-gold, #fc6e20);
+}
+.codex--open .codex__body {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.codex__title {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: .95rem;
+  letter-spacing: .05em;
+  color: var(--parchment, #efe6de);
+  text-transform: lowercase;
+}
+.codex__sub {
+  margin: .1rem 0 .8rem;
+  font-size: .65rem;
+  opacity: .5;
+  font-style: italic;
+}
+
+.codex__hints {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px dashed rgba(252,110,32,.3);
+}
+.codex__hints li {
+  position: relative;
+  padding: .5rem 1.4rem .5rem 0;
+  border-bottom: 1px dashed rgba(252,110,32,.3);
+  font-size: .68rem;
+  line-height: 1.45;
+  opacity: .85;
+}
+.codex__meta {
+  position: absolute;
+  right: 0;
+  top: .5rem;
+  font-size: .6rem;
+  color: var(--ember-gold, #fc6e20);
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.codex__foot {
+  margin: .7rem 0 0;
+  text-align: center;
+  font-size: .6rem;
+  letter-spacing: .1em;
+  color: var(--ember-gold, #fc6e20);
+  text-transform: lowercase;
+}
+
+.spark {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9996;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    text-shadow: 0 0 6px currentColor;
+    animation: spark-fly .9s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes spark-fly {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(.4) rotate(0); }
+  50%  { opacity: 1; transform: translate(calc(-50% + var(--dx)), calc(-50% - 15px)) scale(1) rotate(var(--rot)); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% - 30px)) scale(.2) rotate(var(--rot)); }
 }
